@@ -1,28 +1,45 @@
+// =========================
+// TAB TITLE
+// =========================
+
 const title = "@wxrper";
+
 let visible = title.length;
+
 let fadingOut = true;
 
+
 setInterval(() => {
+
     if (fadingOut) {
+
         visible--;
 
-        // Keep the @
+        // Keep @ visible
         if (visible < 1) {
+
             visible = 1;
+
             fadingOut = false;
+
         }
 
         document.title = title.slice(0, visible);
 
     } else {
+
         visible++;
 
         document.title = title.slice(0, visible);
 
         if (visible === title.length) {
+
             fadingOut = true;
+
         }
+
     }
+
 }, 300);
 
 
@@ -30,9 +47,15 @@ setInterval(() => {
 // MUSIC
 // =========================
 
-const enterScreen = document.getElementById("enter-screen");
-const music = document.getElementById("bg-music");
-const musicToggle = document.getElementById("music-toggle");
+const enterScreen =
+    document.getElementById("enter-screen");
+
+const music =
+    document.getElementById("bg-music");
+
+const musicToggle =
+    document.getElementById("music-toggle");
+
 
 enterScreen.addEventListener("click", () => {
 
@@ -46,9 +69,15 @@ enterScreen.addEventListener("click", () => {
 
 });
 
+
+// =========================
+// MUTE / UNMUTE
+// =========================
+
 musicToggle.addEventListener("click", () => {
 
     music.muted = !music.muted;
+
 
     if (music.muted) {
 
@@ -64,14 +93,29 @@ musicToggle.addEventListener("click", () => {
 
 });
 
-        musicToggle.innerHTML =
-            '<i class="fa-solid fa-volume-xmark"></i>';
 
-    } else {
+// =========================
+// VIEWER COUNT
+// =========================
 
-        musicToggle.innerHTML =
-            '<i class="fa-solid fa-volume-high"></i>';
+fetch(
+    "https://api.counterapi.dev/v1/wxrperz-site/visits/up"
+)
 
-    }
+.then(response => response.json())
+
+.then(data => {
+
+    document.getElementById("view-count").textContent =
+        data.count + " views";
+
+})
+
+.catch(error => {
+
+    console.error("Viewer count error:", error);
+
+    document.getElementById("view-count").textContent =
+        "views";
 
 });
