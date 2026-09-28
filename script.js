@@ -24,3 +24,40 @@ setInterval(() => {
         }
     }
 }, 300);
+
+
+// =========================
+// MUSIC
+// =========================
+
+const enterScreen = document.getElementById("enter-screen");
+const music = document.getElementById("bg-music");
+const musicToggle = document.getElementById("music-toggle");
+
+enterScreen.addEventListener("click", () => {
+
+    enterScreen.classList.add("hidden");
+
+    music.volume = 0.5;
+
+    music.play();
+
+});
+
+musicToggle.addEventListener("click", () => {
+
+    music.muted = !music.muted;
+
+    if (music.muted) {
+
+        musicToggle.innerHTML =
+            '<i class="fa-solid fa-volume-xmark"></i>';
+
+    } else {
+
+        musicToggle.innerHTML =
+            '<i class="fa-solid fa-volume-high"></i>';
+
+    }
+
+});
