@@ -486,12 +486,6 @@ body::before {
         transform: translateY(180px) scaleX(1.08);
     }
 
-body,
-a,
-button {
-    cursor: url("football.png"), auto;
-}
-a,
-button {
-    cursor: url("football.png") 16 16, pointer;
+* {
+    cursor: url("football.png") 16 16, auto;
 }
