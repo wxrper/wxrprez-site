@@ -18,6 +18,15 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
+    <!-- Football Cursor -->
+    <style>
+        html,
+        body,
+        * {
+            cursor: url("football.png") 16 16, auto !important;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -69,13 +78,50 @@
         <!-- Social buttons -->
         <div class="socials">
 
-    
+            <a href="https://www.instagram.com/amanmessiii/"
+               target="_blank"
+               title="Instagram">
 
-    <a href="https://www.instagram.com/amanmessiii/" target="_blank" title="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
+                <i class="fa-brands fa-instagram"></i>
 
-</div>
+            </a>
+
+        </div>
+
+
+        <!-- Music Player -->
+        <div class="music-player">
+
+            <button id="music-play">
+                <i class="fa-solid fa-play"></i>
+            </button>
+
+            <div class="music-info">
+
+                <strong>Now Playing</strong>
+
+                <span>your song 🎵</span>
+
+            </div>
+
+            <button id="music-mute">
+                <i class="fa-solid fa-volume-high"></i>
+            </button>
+
+            <input
+                type="range"
+                id="music-volume"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.5"
+            >
+
+            <audio id="bg-music" loop>
+                <source src="music.mp3" type="audio/mpeg">
+            </audio>
+
+        </div>
 
 
         <!-- Views -->
