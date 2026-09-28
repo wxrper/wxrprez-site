@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,38 +14,23 @@
     >
 
     <style>
-
-        /* FOOTBALL CURSOR */
-
-        html,
-        body,
-        * {
+        html, body, * {
             cursor: url("https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26bd.png") 16 16, auto !important;
         }
-
-
-        /* CLICK TO ENTER */
 
         #enter-screen {
             position: fixed;
             inset: 0;
             width: 100vw;
             height: 100vh;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             background: rgba(0, 0, 0, 0.78);
             backdrop-filter: blur(8px);
-
             z-index: 999999;
-
-            transition:
-                opacity 0.8s ease,
-                visibility 0.8s ease;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
-
 
         #enter-screen.hidden {
             opacity: 0;
@@ -54,35 +38,26 @@
             pointer-events: none;
         }
 
-
         .enter-content {
             text-align: center;
             color: white;
         }
 
-
         .enter-content h2 {
             margin: 0;
             font-size: 34px;
             font-weight: bold;
-
-            text-shadow:
-                0 0 10px rgba(255,255,255,0.5);
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
-
 
         .enter-content p {
             margin-top: 10px;
             font-size: 14px;
-
             color: rgba(255,255,255,0.6);
-
             animation: enterPulse 2s ease-in-out infinite;
         }
 
-
         @keyframes enterPulse {
-
             0%, 100% {
                 opacity: 0.4;
             }
@@ -90,61 +65,37 @@
             50% {
                 opacity: 1;
             }
-
         }
-
-
-        /* ORANGE SPEAKER */
 
         #music-toggle {
             position: fixed;
-
             left: 25px;
             top: 25px;
-
             width: 48px;
             height: 48px;
-
             border: 1px solid rgba(255, 140, 0, 0.35);
             border-radius: 50%;
-
             background: rgba(255, 140, 0, 0.12);
-
             backdrop-filter: blur(15px);
-
             color: #ff8c00;
-
             font-size: 18px;
-
             z-index: 1000;
-
             opacity: 0;
             pointer-events: none;
-
             transition: 0.25s;
-
-            box-shadow:
-                0 0 15px rgba(255, 140, 0, 0.15);
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.15);
         }
-
 
         #music-toggle.show {
             opacity: 1;
             pointer-events: auto;
         }
 
-
         #music-toggle:hover {
             transform: scale(1.1);
-
             background: rgba(255, 140, 0, 0.22);
-
-            box-shadow:
-                0 0 25px rgba(255, 140, 0, 0.35);
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.35);
         }
-
-
-        /* VIEWER COUNT */
 
         .views {
             display: flex;
@@ -152,98 +103,52 @@
             justify-content: center;
             gap: 8px;
         }
-
-
-        #view-count {
-            min-width: 70px;
-        }
-
     </style>
-
 </head>
-
 
 <body>
 
-
-    <!-- CLICK TO ENTER -->
-
+    <!-- ENTER SCREEN -->
     <div id="enter-screen">
-
         <div class="enter-content">
-
             <h2>wxrperz</h2>
-
             <p>click to enter</p>
-
         </div>
-
     </div>
 
-
     <!-- BACKGROUND -->
-
     <div class="background"></div>
 
-
     <!-- PROFILE -->
-
     <main class="profile">
 
-
-        <!-- PROFILE PICTURE -->
-
         <div class="avatar">
-
             <img src="pfp.jpg" alt="wxrperz">
-
         </div>
-
-
-        <!-- USERNAME -->
 
         <h1>wxrperz</h1>
 
-
-        <!-- BIO -->
-
-        <p class="bio">
-            follow up!
-        </p>
-
-
-        <!-- LOCATION -->
+        <p class="bio">follow up!</p>
 
         <p class="location">
-
             <i class="fa-solid fa-location-dot"></i>
-
             in your heart
-
         </p>
 
-
-        <!-- PROFILE BOX -->
-
+        <!-- USER BOX -->
         <div class="user-box">
 
-            <img src="profile.jpg" alt="wxrperz">
+            <img src="profile.jpg" alt="amanmessi">
 
             <div class="user-info">
-
                 <strong>amanmessi</strong>
-
                 <p>💖</p>
-
                 <p></p>
-
             </div>
 
         </div>
 
-
-        <!-- INSTAGRAM -->
-
+        <!-- SOCIALS -->
         <div class="socials">
 
             <a
@@ -251,60 +156,38 @@
                 target="_blank"
                 title="Instagram"
             >
-
                 <i class="fa-brands fa-instagram"></i>
-
             </a>
 
         </div>
 
-
-        <!-- VIEWER COUNT -->
-
+        <!-- VIEW COUNT -->
         <div class="views">
-
             <i class="fa-solid fa-eye"></i>
-
-            <span id="view-count">
-                0 views
-            </span>
-
+            <span id="view-count">123 views</span>
         </div>
-
 
     </main>
 
-
     <!-- MUSIC -->
-
     <audio id="bg-music" loop>
-
         <source src="music.mp3" type="audio/mpeg">
-
     </audio>
 
-
-    <!-- SPEAKER -->
-
+    <!-- MUSIC BUTTON -->
     <button id="music-toggle">
-
         <i class="fa-solid fa-volume-high"></i>
-
     </button>
 
 
     <script>
 
-        /* =========================
-           TAB TITLE
-        ========================= */
+        /* TAB TITLE ANIMATION */
 
         const title = "@wxrper";
 
         let visible = title.length;
-
         let fadingOut = true;
-
 
         setInterval(() => {
 
@@ -313,29 +196,20 @@
                 visible--;
 
                 if (visible < 1) {
-
                     visible = 1;
-
                     fadingOut = false;
-
                 }
 
-                document.title =
-                    title.slice(0, visible);
+                document.title = title.slice(0, visible);
 
-            }
-
-            else {
+            } else {
 
                 visible++;
 
-                document.title =
-                    title.slice(0, visible);
+                document.title = title.slice(0, visible);
 
                 if (visible === title.length) {
-
                     fadingOut = true;
-
                 }
 
             }
@@ -343,9 +217,7 @@
         }, 300);
 
 
-        /* =========================
-           MUSIC
-        ========================= */
+        /* ENTER + MUSIC */
 
         const enterScreen =
             document.getElementById("enter-screen");
@@ -370,23 +242,18 @@
         });
 
 
-        /* =========================
-           MUTE / UNMUTE
-        ========================= */
+        /* MUTE / UNMUTE */
 
         musicToggle.addEventListener("click", () => {
 
             music.muted = !music.muted;
-
 
             if (music.muted) {
 
                 musicToggle.innerHTML =
                     '<i class="fa-solid fa-volume-xmark"></i>';
 
-            }
-
-            else {
+            } else {
 
                 musicToggle.innerHTML =
                     '<i class="fa-solid fa-volume-high"></i>';
@@ -395,42 +262,7 @@
 
         });
 
-
-        /* =========================
-           VIEWER COUNT
-           ========================= */
-
-        let views =
-            localStorage.getItem("wxrperz_views");
-
-
-        if (!views) {
-
-            views = 1;
-
-        }
-
-        else {
-
-            views = parseInt(views) + 1;
-
-        }
-
-
-        localStorage.setItem(
-            "wxrperz_views",
-            views
-        );
-
-
-        document.getElementById(
-            "view-count"
-        ).textContent = views + " views";
-
-
     </script>
 
-
 </body>
-
 </html>
