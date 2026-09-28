@@ -18,16 +18,20 @@
 
     <style>
 
-        /* FOOTBALL CURSOR */
+        /* =========================
+           FOOTBALL CURSOR
+        ========================= */
 
         html,
         body,
         * {
-            cursor: url("football.png") 16 16, auto !important;
+            cursor: url("https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26bd.png") 16 16, auto !important;
         }
 
 
-        /* CLICK TO ENTER */
+        /* =========================
+           CLICK TO ENTER
+        ========================= */
 
         #enter-screen {
 
@@ -117,7 +121,9 @@
         }
 
 
-        /* ORANGE SPEAKER */
+        /* =========================
+           ORANGE SPEAKER
+        ========================= */
 
         #music-toggle {
 
@@ -176,6 +182,29 @@
 
             box-shadow:
                 0 0 25px rgba(255, 140, 0, 0.35);
+
+        }
+
+
+        /* =========================
+           VIEW COUNT
+        ========================= */
+
+        .views {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+        }
+
+        #view-count {
+
+            min-width: 70px;
 
         }
 
@@ -282,13 +311,15 @@
         </div>
 
 
-        <!-- VIEWS -->
+        <!-- VIEWER COUNT -->
 
         <div class="views">
 
             <i class="fa-solid fa-eye"></i>
 
-            <span>viewer count</span>
+            <span id="view-count">
+                loading...
+            </span>
 
         </div>
 
@@ -316,7 +347,10 @@
 
     <script>
 
-        /* TAB TITLE */
+
+        /* =========================
+           TAB TITLE
+        ========================= */
 
         const title = "@wxrper";
 
@@ -363,7 +397,9 @@
 
 
 
-        /* MUSIC */
+        /* =========================
+           MUSIC
+        ========================= */
 
         const enterScreen =
             document.getElementById("enter-screen");
@@ -388,7 +424,10 @@
         });
 
 
-        /* MUTE / UNMUTE */
+
+        /* =========================
+           MUTE / UNMUTE
+        ========================= */
 
         musicToggle.addEventListener("click", () => {
 
@@ -410,6 +449,35 @@
             }
 
         });
+
+
+
+        /* =========================
+           VIEWER COUNT
+        ========================= */
+
+        fetch(
+            "https://api.counterapi.dev/v1/wxrperz-site/visits/up"
+        )
+
+        .then(response => response.json())
+
+        .then(data => {
+
+            document.getElementById("view-count").textContent =
+                data.count + " views";
+
+        })
+
+        .catch(error => {
+
+            console.error("Viewer count error:", error);
+
+            document.getElementById("view-count").textContent =
+                "views";
+
+        });
+
 
     </script>
 
