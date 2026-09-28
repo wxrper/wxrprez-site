@@ -42,6 +42,8 @@ enterScreen.addEventListener("click", () => {
 
     music.play();
 
+    musicToggle.classList.add("show");
+
 });
 
 musicToggle.addEventListener("click", () => {
@@ -49,6 +51,18 @@ musicToggle.addEventListener("click", () => {
     music.muted = !music.muted;
 
     if (music.muted) {
+
+        musicToggle.innerHTML =
+            '<i class="fa-solid fa-volume-xmark"></i>';
+
+    } else {
+
+        musicToggle.innerHTML =
+            '<i class="fa-solid fa-volume-high"></i>';
+
+    }
+
+});
 
         musicToggle.innerHTML =
             '<i class="fa-solid fa-volume-xmark"></i>';
