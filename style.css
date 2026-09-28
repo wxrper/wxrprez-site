@@ -486,6 +486,10 @@ body::before {
         transform: translateY(180px) scaleX(1.08);
     }
 
-html, body, a, button {
+html {
+    cursor: crosshair !important;
+}
+
+body {
     cursor: crosshair !important;
 }
