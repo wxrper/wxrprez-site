@@ -14,8 +14,10 @@
     >
 
     <style>
+
+        /* SMALL FOOTBALL CURSOR */
         html, body, * {
-            cursor: url("https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26bd.png") 16 16, auto !important;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='white' stroke='black' stroke-width='1.5'/%3E%3Cpath d='M12 7l2 1.5-.75 2.3h-2.5L10 8.5zM7.2 10.5l2.1.3.8 2.3-1.7 1.3-1.8-1.3zM16.8 10.5l-2.1.3-.8 2.3 1.7 1.3 1.8-1.3zM10 16l2-1.2 2 1.2-.7 2.2h-2.6z' fill='black'/%3E%3C/svg%3E") 12 12, auto !important;
         }
 
         #enter-screen {
@@ -103,6 +105,7 @@
             justify-content: center;
             gap: 8px;
         }
+
     </style>
 </head>
 
@@ -148,7 +151,7 @@
 
         </div>
 
-        <!-- SOCIALS -->
+        <!-- INSTAGRAM -->
         <div class="socials">
 
             <a
@@ -161,10 +164,10 @@
 
         </div>
 
-        <!-- VIEW COUNT -->
+        <!-- REAL VIEW COUNT -->
         <div class="views">
             <i class="fa-solid fa-eye"></i>
-            <span id="view-count">123 views</span>
+            <span id="view-count">loading...</span>
         </div>
 
     </main>
@@ -174,7 +177,7 @@
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- MUSIC BUTTON -->
+    <!-- SPEAKER -->
     <button id="music-toggle">
         <i class="fa-solid fa-volume-high"></i>
     </button>
@@ -261,6 +264,24 @@
             }
 
         });
+
+
+        /* REAL SHARED VIEW COUNTER */
+
+        fetch("https://api.counterapi.dev/v1/wxrperz-site/visits/up")
+            .then(response => response.json())
+            .then(data => {
+
+                document.getElementById("view-count").textContent =
+                    data.count + " views";
+
+            })
+            .catch(() => {
+
+                document.getElementById("view-count").textContent =
+                    "views";
+
+            });
 
     </script>
 
