@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>@wxrper</title>
@@ -15,51 +18,98 @@
 
     <style>
 
-        /* SMALL FOOTBALL CURSOR */
-        html, body, * {
-            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='white' stroke='black' stroke-width='1.5'/%3E%3Cpath d='M12 7l2 1.5-.75 2.3h-2.5L10 8.5zM7.2 10.5l2.1.3.8 2.3-1.7 1.3-1.8-1.3zM16.8 10.5l-2.1.3-.8 2.3 1.7 1.3 1.8-1.3zM10 16l2-1.2 2 1.2-.7 2.2h-2.6z' fill='black'/%3E%3C/svg%3E") 12 12, auto !important;
+        /* =========================
+           FOOTBALL CURSOR
+        ========================= */
+
+        html,
+        body,
+        * {
+            cursor: url("https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/26bd.png") 16 16, auto !important;
         }
+
+
+        /* =========================
+           CLICK TO ENTER
+        ========================= */
 
         #enter-screen {
+
             position: fixed;
+
             inset: 0;
+
             width: 100vw;
             height: 100vh;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             background: rgba(0, 0, 0, 0.78);
+
             backdrop-filter: blur(8px);
+
             z-index: 999999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+
+            transition:
+                opacity 0.8s ease,
+                visibility 0.8s ease;
+
         }
+
 
         #enter-screen.hidden {
+
             opacity: 0;
+
             visibility: hidden;
+
             pointer-events: none;
+
         }
+
 
         .enter-content {
+
             text-align: center;
+
             color: white;
+
         }
+
 
         .enter-content h2 {
+
             margin: 0;
+
             font-size: 34px;
+
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+
+            text-shadow:
+                0 0 10px rgba(255,255,255,0.5);
+
         }
+
 
         .enter-content p {
+
             margin-top: 10px;
+
             font-size: 14px;
+
             color: rgba(255,255,255,0.6);
-            animation: enterPulse 2s ease-in-out infinite;
+
+            animation:
+                enterPulse 2s ease-in-out infinite;
+
         }
 
+
         @keyframes enterPulse {
+
             0%, 100% {
                 opacity: 0.4;
             }
@@ -67,91 +117,192 @@
             50% {
                 opacity: 1;
             }
+
         }
+
+
+        /* =========================
+           ORANGE SPEAKER
+        ========================= */
 
         #music-toggle {
+
             position: fixed;
+
             left: 25px;
+
             top: 25px;
+
             width: 48px;
+
             height: 48px;
+
             border: 1px solid rgba(255, 140, 0, 0.35);
+
             border-radius: 50%;
-            background: rgba(255, 140, 0, 0.12);
+
+            background:
+                rgba(255, 140, 0, 0.12);
+
             backdrop-filter: blur(15px);
+
             color: #ff8c00;
+
             font-size: 18px;
+
             z-index: 1000;
+
             opacity: 0;
+
             pointer-events: none;
+
             transition: 0.25s;
-            box-shadow: 0 0 15px rgba(255, 140, 0, 0.15);
+
+            box-shadow:
+                0 0 15px rgba(255, 140, 0, 0.15);
+
         }
+
 
         #music-toggle.show {
+
             opacity: 1;
+
             pointer-events: auto;
+
         }
+
 
         #music-toggle:hover {
+
             transform: scale(1.1);
-            background: rgba(255, 140, 0, 0.22);
-            box-shadow: 0 0 25px rgba(255, 140, 0, 0.35);
+
+            background:
+                rgba(255, 140, 0, 0.22);
+
+            box-shadow:
+                0 0 25px rgba(255, 140, 0, 0.35);
+
         }
 
+
+        /* =========================
+           VIEWER COUNT
+        ========================= */
+
         .views {
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             gap: 8px;
+
+        }
+
+
+        #view-count {
+
+            min-width: 70px;
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- ENTER SCREEN -->
+
+    <!-- =========================
+         CLICK TO ENTER
+    ========================= -->
+
     <div id="enter-screen">
+
         <div class="enter-content">
+
             <h2>wxrperz</h2>
+
             <p>click to enter</p>
+
         </div>
+
     </div>
 
-    <!-- BACKGROUND -->
+
+    <!-- =========================
+         BACKGROUND
+    ========================= -->
+
     <div class="background"></div>
 
-    <!-- PROFILE -->
+
+    <!-- =========================
+         PROFILE
+    ========================= -->
+
     <main class="profile">
 
+
+        <!-- PROFILE PICTURE -->
+
         <div class="avatar">
+
             <img src="pfp.jpg" alt="wxrperz">
+
         </div>
+
+
+        <!-- USERNAME -->
 
         <h1>wxrperz</h1>
 
-        <p class="bio">follow up!</p>
 
-        <p class="location">
-            <i class="fa-solid fa-location-dot"></i>
-            in your heart
+        <!-- BIO -->
+
+        <p class="bio">
+
+            follow up!
+
         </p>
 
-        <!-- USER BOX -->
+
+        <!-- LOCATION -->
+
+        <p class="location">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            in your heart
+
+        </p>
+
+
+        <!-- PROFILE BOX -->
+
         <div class="user-box">
 
-            <img src="profile.jpg" alt="amanmessi">
+            <img src="profile.jpg" alt="wxrperz">
 
             <div class="user-info">
+
                 <strong>amanmessi</strong>
+
                 <p>💖</p>
+
                 <p></p>
+
             </div>
 
         </div>
 
+
         <!-- INSTAGRAM -->
+
         <div class="socials">
 
             <a
@@ -159,38 +310,70 @@
                 target="_blank"
                 title="Instagram"
             >
+
                 <i class="fa-brands fa-instagram"></i>
+
             </a>
 
         </div>
 
-        <!-- REAL VIEW COUNT -->
+
+        <!-- =========================
+             VIEWER COUNT
+        ========================= -->
+
         <div class="views">
+
             <i class="fa-solid fa-eye"></i>
-            <span id="view-count">loading...</span>
+
+            <span id="view-count">
+                loading...
+            </span>
+
         </div>
+
 
     </main>
 
-    <!-- MUSIC -->
+
+    <!-- =========================
+         MUSIC
+    ========================= -->
+
     <audio id="bg-music" loop>
+
         <source src="music.mp3" type="audio/mpeg">
+
     </audio>
 
-    <!-- SPEAKER -->
+
+    <!-- =========================
+         SPEAKER
+    ========================= -->
+
     <button id="music-toggle">
+
         <i class="fa-solid fa-volume-high"></i>
+
     </button>
 
 
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
     <script>
 
-        /* TAB TITLE ANIMATION */
+        /* =========================
+           TAB TITLE
+        ========================= */
 
         const title = "@wxrper";
 
         let visible = title.length;
+
         let fadingOut = true;
+
 
         setInterval(() => {
 
@@ -199,20 +382,29 @@
                 visible--;
 
                 if (visible < 1) {
+
                     visible = 1;
+
                     fadingOut = false;
+
                 }
 
-                document.title = title.slice(0, visible);
+                document.title =
+                    title.slice(0, visible);
 
-            } else {
+            }
+
+            else {
 
                 visible++;
 
-                document.title = title.slice(0, visible);
+                document.title =
+                    title.slice(0, visible);
 
                 if (visible === title.length) {
+
                     fadingOut = true;
+
                 }
 
             }
@@ -220,7 +412,9 @@
         }, 300);
 
 
-        /* ENTER + MUSIC */
+        /* =========================
+           MUSIC
+        ========================= */
 
         const enterScreen =
             document.getElementById("enter-screen");
@@ -245,18 +439,23 @@
         });
 
 
-        /* MUTE / UNMUTE */
+        /* =========================
+           MUTE / UNMUTE
+        ========================= */
 
         musicToggle.addEventListener("click", () => {
 
             music.muted = !music.muted;
+
 
             if (music.muted) {
 
                 musicToggle.innerHTML =
                     '<i class="fa-solid fa-volume-xmark"></i>';
 
-            } else {
+            }
+
+            else {
 
                 musicToggle.innerHTML =
                     '<i class="fa-solid fa-volume-high"></i>';
@@ -266,24 +465,66 @@
         });
 
 
-        /* REAL SHARED VIEW COUNTER */
+        /* =========================
+           VIEWER COUNT
+        ========================= */
 
-        fetch("https://api.counterapi.dev/v1/wxrperz-site/visits/up")
-            .then(response => response.json())
-            .then(data => {
+        const viewCount =
+            document.getElementById("view-count");
 
-                document.getElementById("view-count").textContent =
+
+        fetch(
+            "https://api.counterapi.dev/v1/wxrperz-site/visits/up"
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error("Counter API failed");
+
+            }
+
+            return response.json();
+
+        })
+
+        .then(data => {
+
+            if (
+                data &&
+                data.count !== undefined
+            ) {
+
+                viewCount.textContent =
                     data.count + " views";
 
-            })
-            .catch(() => {
+            }
 
-                document.getElementById("view-count").textContent =
-                    "views";
+            else {
 
-            });
+                viewCount.textContent =
+                    "0 views";
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.log(
+                "Viewer count error:",
+                error
+            );
+
+            viewCount.textContent =
+                "0 views";
+
+        });
 
     </script>
 
+
 </body>
+
 </html>
