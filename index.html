@@ -31,8 +31,23 @@
 
 <body>
 
+    <!-- Click To Enter -->
+    <div id="enter-screen">
+
+        <div class="enter-content">
+
+            <h2>wxrperz</h2>
+
+            <p>click to enter</p>
+
+        </div>
+
+    </div>
+
+
     <!-- Background -->
     <div class="background"></div>
+
 
     <!-- Main profile card -->
     <main class="profile">
@@ -42,13 +57,16 @@
             <img src="pfp.jpg" alt="wxrperz">
         </div>
 
+
         <!-- Username -->
         <h1>wxrperz</h1>
+
 
         <!-- Bio -->
         <p class="bio">
             follow up!
         </p>
+
 
         <!-- Location -->
         <p class="location">
@@ -75,51 +93,16 @@
         </div>
 
 
-        <!-- Social buttons -->
+        <!-- Instagram -->
         <div class="socials">
 
-            <a href="https://www.instagram.com/amanmessiii/"
-               target="_blank"
-               title="Instagram">
-
-                <i class="fa-brands fa-instagram"></i>
-
-            </a>
-
-        </div>
-
-
-        <!-- Music Player -->
-        <div class="music-player">
-
-            <button id="music-play">
-                <i class="fa-solid fa-play"></i>
-            </button>
-
-            <div class="music-info">
-
-                <strong>Now Playing</strong>
-
-                <span>your song 🎵</span>
-
-            </div>
-
-            <button id="music-mute">
-                <i class="fa-solid fa-volume-high"></i>
-            </button>
-
-            <input
-                type="range"
-                id="music-volume"
-                min="0"
-                max="1"
-                step="0.01"
-                value="0.5"
+            <a
+                href="https://www.instagram.com/amanmessiii/"
+                target="_blank"
+                title="Instagram"
             >
-
-            <audio id="bg-music" loop>
-                <source src="music.mp3" type="audio/mpeg">
-            </audio>
+                <i class="fa-brands fa-instagram"></i>
+            </a>
 
         </div>
 
@@ -134,6 +117,21 @@
         </div>
 
     </main>
+
+
+    <!-- Music -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- Speaker Button -->
+    <button id="music-toggle" class="music-toggle">
+
+        <i class="fa-solid fa-volume-high"></i>
+
+    </button>
+
 
     <script src="script.js"></script>
 
