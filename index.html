@@ -5,10 +5,9 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>wxrperz</title>
+    <title>@wxrper</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -18,20 +17,132 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
-    <!-- Football Cursor -->
+    <!-- Everything needed for the new screen/player -->
     <style>
+
+        /* FOOTBALL CURSOR */
         html,
         body,
         * {
             cursor: url("football.png") 16 16, auto !important;
         }
+
+
+        /* CLICK TO ENTER SCREEN */
+        #enter-screen {
+            position: fixed;
+            inset: 0;
+
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #000;
+
+            z-index: 999999;
+
+            transition:
+                opacity 0.8s ease,
+                visibility 0.8s ease;
+        }
+
+        #enter-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .enter-content {
+            text-align: center;
+            color: white;
+        }
+
+        .enter-content h2 {
+            margin: 0;
+
+            font-size: 34px;
+            font-weight: bold;
+
+            text-shadow:
+                0 0 10px rgba(255,255,255,0.5);
+        }
+
+        .enter-content p {
+            margin-top: 10px;
+
+            font-size: 14px;
+
+            color: rgba(255,255,255,0.6);
+
+            animation: enterPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes enterPulse {
+
+            0%, 100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* SPEAKER BUTTON */
+
+        .music-toggle {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 48px;
+            height: 48px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(15px);
+
+            color: white;
+
+            font-size: 18px;
+
+            z-index: 1000;
+
+            opacity: 0;
+            pointer-events: none;
+
+            transition: 0.25s;
+        }
+
+        .music-toggle.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(255,255,255,0.15);
+        }
+
     </style>
 
 </head>
 
+
 <body>
 
-    <!-- Click To Enter -->
+
+    <!-- CLICK TO ENTER -->
+
     <div id="enter-screen">
 
         <div class="enter-content">
@@ -45,37 +156,52 @@
     </div>
 
 
-    <!-- Background -->
+    <!-- BACKGROUND -->
+
     <div class="background"></div>
 
 
-    <!-- Main profile card -->
+    <!-- PROFILE -->
+
     <main class="profile">
 
-        <!-- Profile picture -->
+
+        <!-- PROFILE PICTURE -->
+
         <div class="avatar">
+
             <img src="pfp.jpg" alt="wxrperz">
+
         </div>
 
 
-        <!-- Username -->
+        <!-- USERNAME -->
+
         <h1>wxrperz</h1>
 
 
-        <!-- Bio -->
+        <!-- BIO -->
+
         <p class="bio">
+
             follow up!
+
         </p>
 
 
-        <!-- Location -->
+        <!-- LOCATION -->
+
         <p class="location">
+
             <i class="fa-solid fa-location-dot"></i>
+
             in your heart
+
         </p>
 
 
-        <!-- Small profile box -->
+        <!-- PROFILE BOX -->
+
         <div class="user-box">
 
             <img src="profile.jpg" alt="wxrperz">
@@ -93,7 +219,8 @@
         </div>
 
 
-        <!-- Instagram -->
+        <!-- INSTAGRAM -->
+
         <div class="socials">
 
             <a
@@ -101,13 +228,16 @@
                 target="_blank"
                 title="Instagram"
             >
+
                 <i class="fa-brands fa-instagram"></i>
+
             </a>
 
         </div>
 
 
-        <!-- Views -->
+        <!-- VIEWS -->
+
         <div class="views">
 
             <i class="fa-solid fa-eye"></i>
@@ -116,24 +246,135 @@
 
         </div>
 
+
     </main>
 
 
-    <!-- Music -->
+    <!-- MUSIC -->
+
     <audio id="bg-music" loop>
+
         <source src="music.mp3" type="audio/mpeg">
+
     </audio>
 
 
-    <!-- Speaker Button -->
-    <button id="music-toggle" class="music-toggle">
+    <!-- SPEAKER -->
+
+    <button id="music-toggle">
 
         <i class="fa-solid fa-volume-high"></i>
 
     </button>
 
 
-    <script src="script.js"></script>
+    <!-- SCRIPT -->
+
+    <script>
+
+        /* TAB TITLE */
+
+        const title = "@wxrper";
+
+        let visible = title.length;
+
+        let fadingOut = true;
+
+
+        setInterval(() => {
+
+            if (fadingOut) {
+
+                visible--;
+
+                if (visible < 1) {
+
+                    visible = 1;
+
+                    fadingOut = false;
+
+                }
+
+                document.title = title.slice(0, visible);
+
+            }
+
+            else {
+
+                visible++;
+
+                document.title = title.slice(0, visible);
+
+                if (visible === title.length) {
+
+                    fadingOut = true;
+
+                }
+
+            }
+
+        }, 300);
+
+
+
+        /* MUSIC */
+
+        const enterScreen =
+            document.getElementById("enter-screen");
+
+        const music =
+            document.getElementById("bg-music");
+
+        const musicToggle =
+            document.getElementById("music-toggle");
+
+
+        enterScreen.addEventListener("click", () => {
+
+            /* Hide enter screen */
+
+            enterScreen.classList.add("hidden");
+
+
+            /* Start music */
+
+            music.volume = 0.5;
+
+            music.play();
+
+
+            /* Show speaker */
+
+            musicToggle.classList.add("show");
+
+        });
+
+
+        /* MUTE / UNMUTE */
+
+        musicToggle.addEventListener("click", () => {
+
+            music.muted = !music.muted;
+
+
+            if (music.muted) {
+
+                musicToggle.innerHTML =
+                    '<i class="fa-solid fa-volume-xmark"></i>';
+
+            }
+
+            else {
+
+                musicToggle.innerHTML =
+                    '<i class="fa-solid fa-volume-high"></i>';
+
+            }
+
+        });
+
+    </script>
+
 
 </body>
 
