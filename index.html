@@ -4,7 +4,6 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>@wxrper</title>
@@ -18,9 +17,7 @@
 
     <style>
 
-        /* =========================
-           FOOTBALL CURSOR
-        ========================= */
+        /* FOOTBALL CURSOR */
 
         html,
         body,
@@ -29,26 +26,19 @@
         }
 
 
-        /* =========================
-           CLICK TO ENTER
-        ========================= */
+        /* CLICK TO ENTER */
 
         #enter-screen {
-
             position: fixed;
-
             inset: 0;
-
             width: 100vw;
             height: 100vh;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             background: rgba(0, 0, 0, 0.78);
-
             backdrop-filter: blur(8px);
 
             z-index: 999999;
@@ -56,55 +46,39 @@
             transition:
                 opacity 0.8s ease,
                 visibility 0.8s ease;
-
         }
 
 
         #enter-screen.hidden {
-
             opacity: 0;
-
             visibility: hidden;
-
             pointer-events: none;
-
         }
 
 
         .enter-content {
-
             text-align: center;
-
             color: white;
-
         }
 
 
         .enter-content h2 {
-
             margin: 0;
-
             font-size: 34px;
-
             font-weight: bold;
 
             text-shadow:
                 0 0 10px rgba(255,255,255,0.5);
-
         }
 
 
         .enter-content p {
-
             margin-top: 10px;
-
             font-size: 14px;
 
             color: rgba(255,255,255,0.6);
 
-            animation:
-                enterPulse 2s ease-in-out infinite;
-
+            animation: enterPulse 2s ease-in-out infinite;
         }
 
 
@@ -121,28 +95,21 @@
         }
 
 
-        /* =========================
-           ORANGE SPEAKER
-        ========================= */
+        /* ORANGE SPEAKER */
 
         #music-toggle {
-
             position: fixed;
 
             left: 25px;
-
             top: 25px;
 
             width: 48px;
-
             height: 48px;
 
             border: 1px solid rgba(255, 140, 0, 0.35);
-
             border-radius: 50%;
 
-            background:
-                rgba(255, 140, 0, 0.12);
+            background: rgba(255, 140, 0, 0.12);
 
             backdrop-filter: blur(15px);
 
@@ -153,59 +120,43 @@
             z-index: 1000;
 
             opacity: 0;
-
             pointer-events: none;
 
             transition: 0.25s;
 
             box-shadow:
                 0 0 15px rgba(255, 140, 0, 0.15);
-
         }
 
 
         #music-toggle.show {
-
             opacity: 1;
-
             pointer-events: auto;
-
         }
 
 
         #music-toggle:hover {
-
             transform: scale(1.1);
 
-            background:
-                rgba(255, 140, 0, 0.22);
+            background: rgba(255, 140, 0, 0.22);
 
             box-shadow:
                 0 0 25px rgba(255, 140, 0, 0.35);
-
         }
 
 
-        /* =========================
-           VIEW COUNT
-        ========================= */
+        /* VIEW COUNT */
 
         .views {
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             gap: 8px;
-
         }
 
+
         #view-count {
-
             min-width: 70px;
-
         }
 
     </style>
@@ -258,9 +209,7 @@
         <!-- BIO -->
 
         <p class="bio">
-
             follow up!
-
         </p>
 
 
@@ -345,141 +294,9 @@
     </button>
 
 
-    <script>
+    <!-- JAVASCRIPT -->
 
-
-        /* =========================
-           TAB TITLE
-        ========================= */
-
-        const title = "@wxrper";
-
-        let visible = title.length;
-
-        let fadingOut = true;
-
-
-        setInterval(() => {
-
-            if (fadingOut) {
-
-                visible--;
-
-                if (visible < 1) {
-
-                    visible = 1;
-
-                    fadingOut = false;
-
-                }
-
-                document.title =
-                    title.slice(0, visible);
-
-            }
-
-            else {
-
-                visible++;
-
-                document.title =
-                    title.slice(0, visible);
-
-                if (visible === title.length) {
-
-                    fadingOut = true;
-
-                }
-
-            }
-
-        }, 300);
-
-
-
-        /* =========================
-           MUSIC
-        ========================= */
-
-        const enterScreen =
-            document.getElementById("enter-screen");
-
-        const music =
-            document.getElementById("bg-music");
-
-        const musicToggle =
-            document.getElementById("music-toggle");
-
-
-        enterScreen.addEventListener("click", () => {
-
-            enterScreen.classList.add("hidden");
-
-            music.volume = 0.5;
-
-            music.play();
-
-            musicToggle.classList.add("show");
-
-        });
-
-
-
-        /* =========================
-           MUTE / UNMUTE
-        ========================= */
-
-        musicToggle.addEventListener("click", () => {
-
-            music.muted = !music.muted;
-
-
-            if (music.muted) {
-
-                musicToggle.innerHTML =
-                    '<i class="fa-solid fa-volume-xmark"></i>';
-
-            }
-
-            else {
-
-                musicToggle.innerHTML =
-                    '<i class="fa-solid fa-volume-high"></i>';
-
-            }
-
-        });
-
-
-
-        /* =========================
-           VIEWER COUNT
-        ========================= */
-
-        fetch(
-            "https://api.counterapi.dev/v1/wxrperz-site/visits/up"
-        )
-
-        .then(response => response.json())
-
-        .then(data => {
-
-            document.getElementById("view-count").textContent =
-                data.count + " views";
-
-        })
-
-        .catch(error => {
-
-            console.error("Viewer count error:", error);
-
-            document.getElementById("view-count").textContent =
-                "views";
-
-        });
-
-
-    </script>
+    <script src="script.js"></script>
 
 
 </body>
