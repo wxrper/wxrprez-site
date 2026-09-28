@@ -493,3 +493,82 @@ html {
 body {
     cursor: crosshair !important;
 }
+/* CLICK TO ENTER - FIX */
+
+#enter-screen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #000 !important;
+
+    z-index: 999999 !important;
+
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#enter-screen.hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.enter-content {
+    text-align: center;
+    color: white;
+}
+
+.enter-content h2 {
+    font-size: 32px;
+    margin: 0;
+}
+
+.enter-content p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+}
+
+
+/* SPEAKER */
+
+.music-toggle {
+    position: fixed !important;
+
+    right: 25px !important;
+    bottom: 25px !important;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+
+    color: white;
+    font-size: 18px;
+
+    z-index: 1000;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s;
+}
+
+.music-toggle.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+}
